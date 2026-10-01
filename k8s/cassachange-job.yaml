@@ -1,19 +1,19 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: cassachange-cassandra
+  name: cassandra-cassachange
 spec:
   backoffLimit: 0
   template:
     spec:
       restartPolicy: Never
       containers:
-        - name: cassachange-cassandra
+        - name: cassandra-cassachange
           image: PLACEHOLDER
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
-                name: cassachange-cassandra-secret
+                name: cassandra-cassachange-secret
           volumeMounts:
             - name: cassachange-config
               mountPath: /migrations/cassachange.yml

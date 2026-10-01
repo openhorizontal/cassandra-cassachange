@@ -1,0 +1,32 @@
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+on:
+  push:
+    branches: ['main']
+    paths:
+      - 'db/**'
+      - '.github/workflows/cassandra-cassachange.yaml'
+  workflow_dispatch:
+
+jobs:
+  image:
+    uses: docker/github-builder/.github/workflows/build.yml@v1
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+    with:
+      output: image
+      push: true
+      context: db
+      meta-images: ghcr.io/openhorizontal/cassandra-cassachange
+      meta-tags: |
+        type=ref,event=tag
+    secrets:
+      registry-auths: |
+        - registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
