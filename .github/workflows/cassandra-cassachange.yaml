@@ -16,7 +16,7 @@ jobs:
     with:
       output: image
       push: true
-      context: db
+      context: db/cassandra/cassachange
       meta-images: ghcr.io/openhorizontal/cassandra-cassachange
       meta-tags: |
         type=ref,event=tag
