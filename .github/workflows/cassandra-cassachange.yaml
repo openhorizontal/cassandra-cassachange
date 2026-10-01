@@ -19,6 +19,7 @@ jobs:
       context: db/cassandra/cassachange
       meta-images: ghcr.io/openhorizontal/cassandra-cassachange
       meta-tags: |
+        type=sha
         type=ref,event=tag
     secrets:
       registry-auths: |
