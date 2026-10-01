@@ -1,4 +1,4 @@
-# ⁠Cassachange Cassandra
+# ⁠Cassandra Cassachange
 This repository provide a reusable base for running 
 Cassandra schema migrations using [cassachange](https://cassachange.com) 
 in Kubernetes.
