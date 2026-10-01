@@ -20,7 +20,7 @@ jobs:
       meta-images: ghcr.io/openhorizontal/cassandra-cassachange
       meta-tags: |
         type=sha
-        type=ref,event=tag
+        type=raw,value=latest
     secrets:
       registry-auths: |
         - registry: ghcr.io
